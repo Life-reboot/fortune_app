@@ -1,4 +1,6 @@
 class Api::GamesController < ApplicationController
+  @@count = 0
+
   def fortune_action
     fortunes = [
       "You will go to Arby's in 3 days.",
@@ -25,5 +27,11 @@ class Api::GamesController < ApplicationController
       index = index + 1
     end
     render "lotto.json.jb"
+  end
+
+  def counter_action
+    @@count = @@count + 1
+    @count = @@count
+    render "counter.json.jb"
   end
 end
